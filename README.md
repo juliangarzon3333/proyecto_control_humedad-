@@ -2,6 +2,7 @@
 proyecto_control_humedad 
 
 DECRIPCION DEL PROYECTO:
+
 Con ánimos de presentar un proyecto que preste una funcionalidad y ofrezca una solución a un problema; usando la aplicación de los conocimientos en python adquiridos durante este curso, tenemos el agrado de presentar un proyecto cuya finalidad nace de una problemática fehaciente en las personas que poseen desde pequeñas huertas casera, hasta viveros de más amplio tamaño, y es que, algo ciertamente esencial en la cultivación  es la humedad correcta de la tierra, esta  juega un papel supremamente importante en la maduración y cosecha de la mayoría si no es que en todos los tipos de plantas.
 
 
@@ -42,9 +43,14 @@ ELEMENTOS DE USO Y APLICACIÓN:
 
 
 
+
+
 DISPOSICIÓN DE LOS ELEMENTOS:
 
 
+
+
+![136988483-073d0be7-3961-4b2b-9fb6-14ea4bb24947](https://user-images.githubusercontent.com/88451810/138116751-4056cb6d-1237-4ea2-8439-a4619611c401.png)
 
 
 
