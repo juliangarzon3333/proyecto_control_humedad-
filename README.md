@@ -51,16 +51,62 @@ DISPOSICIÓN DE LOS ELEMENTOS:
 
 
 ![136988483-073d0be7-3961-4b2b-9fb6-14ea4bb24947](https://user-images.githubusercontent.com/88451810/138116751-4056cb6d-1237-4ea2-8439-a4619611c401.png)
-!
 
-![image](https://user-images.githubusercontent.com/88451810/138126215-1943d4b4-3c66-4ee3-8553-b2f99aac3ca0.png)
+
+
+
+![image](https://user-images.githubusercontent.com/88451810/139163320-5f9e432a-3f9b-447c-800d-ec812c9f0396.png)
+![image](https://user-images.githubusercontent.com/88451810/139163333-3adaaf22-f773-414e-b933-00cfa3bcd5bb.png)
 
 
 
 CODIGO UTILIZADO :
 
+-  librerias requeridas y variables 
+
+from machine import Pin, ADC
+import utime
+import network, time, urequests
+ 
+sensor = ADC(Pin(36))
+
+-  definicion  patrones para poder conectrase a la red 
+def conectaWifi (red, password):
+      global miRed
+      miRed = network.WLAN(network.STA_IF)     
+      if not miRed.isconnected():              
+          miRed.active(True)                 
+          miRed.connect(red, password)         
+          print('Conectando a la red', red +"…")
+          timeout = time.time ()
+          while not miRed.isconnected():           
+              if (time.ticks_diff (time.time (), timeout) > 10):
+                  return False
+      return True
 
 
+
+if conectaWifi ("RedMiHugo", "12345678"):
+
+    print ("Conexión exitosa!")
+    print('Datos de la red (IP/netmask/gw/DNS):', miRed.ifconfig())
+      
+    url = "https://api.thingspeak.com/update?api_key=3QGMC1ZVPU8WVPPJ" 
+ -   lecturas del sensor 
+ -   lectura =  int(sensor.read())
+        print(lectura)
+        utime.sleep(0.5)
+        print("Lectura = {:02d}".format(lectura))
+        respuesta = urequests.get(url+"&field1="+str(lectura))
+        print(respuesta.text)
+        print (respuesta.status_code)
+        respuesta.close ()
+        
+   
+              
+else:
+       print ("Imposible conectar")
+       miRed.active (False)
 
 
 
