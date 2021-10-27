@@ -64,6 +64,7 @@ CODIGO UTILIZADO :
 
 -  librerias requeridas y variables 
 
+
 from machine import Pin, ADC
 import utime
 import network, time, urequests
@@ -71,6 +72,8 @@ import network, time, urequests
 sensor = ADC(Pin(36))
 
 -  definicion  patrones para poder conectrase a la red 
+
+
 def conectaWifi (red, password):
       global miRed
       miRed = network.WLAN(network.STA_IF)     
@@ -93,7 +96,9 @@ if conectaWifi ("RedMiHugo", "12345678"):
       
     url = "https://api.thingspeak.com/update?api_key=3QGMC1ZVPU8WVPPJ" 
  -   lecturas del sensor 
- -   lectura =  int(sensor.read())
+
+
+        lectura =  int(sensor.read())
         print(lectura)
         utime.sleep(0.5)
         print("Lectura = {:02d}".format(lectura))
@@ -110,3 +115,6 @@ else:
 
 
 
+VIDEO DE EXPLICACION DEL PROYECTO 
+
+https://youtu.be/pBy2uRxBrR4
